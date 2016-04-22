@@ -12,10 +12,11 @@ public class Commande {
   
   private static final DecimalFormat FORMAT = new DecimalFormat("#0.00 CHF");
 
+  private int id;
   private Employe employe;
   private Capsule capsule; 
   private int nombre;     
-  
+    
   public Commande (Employe employe, Capsule capsule, int nombre) {
     this.employe = employe; this.capsule = capsule; this.nombre = nombre;
   }

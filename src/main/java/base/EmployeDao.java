@@ -2,6 +2,7 @@ package base;
 
 import java.util.ArrayList;
 import domaine.Employe;
+import domaine.Commande;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +28,10 @@ public class EmployeDao {
                 int id = rs.getInt("Id");
                 String nom = rs.getString("Nom");
                 String prenom = rs.getString("Prenom");
-                liste.add(new Employe(id, nom, prenom));
+                Employe employe = new Employe(id, nom, prenom);
+                ArrayList<Commande> commandes = CommandeDao.getListeCommandes(employe);
+                employe.setCommandes(commandes);
+                liste.add(employe);
             }
             return liste;
         } catch (SQLException e) {

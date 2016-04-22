@@ -14,22 +14,24 @@ import metier.ListeCapsules;
 public class FrmNouvelleCommande extends java.awt.Frame {
 
   private static final int DEFAULT_INDEX = 0;
-  private static final String MSG_ERREUR = "La valeur saisie doit être un entier > 0",
-          LIBELLE_EMPLOYE = "Compléter la commande de ";
+  private static final String 
+          MSG_ERREUR = "La valeur saisie doit être un entier > 0",
+          LIBELLE_EMPLOYE = "Compléter la commande de ",
+          MSG_MONTANT = "Montant de la commande : ";
 
   private static FrmNouvelleCommande frm;
   private static FrmMain frmMere;
   private static Employe employe;
   private ListeCapsules listeCapsules;
 
-  private FrmNouvelleCommande(FrmMain frmMere, Employe employe) {
+  private FrmNouvelleCommande(FrmMain frmMere, Employe employe){
     initComponents();
     setDonnees(frmMere, employe);
     initMetier();
     initFrame();
   }
 
-  private void setDonnees(FrmMain frmMere, Employe employe) {
+  private void setDonnees(FrmMain frmMere, Employe employe){
     this.frmMere = frmMere;
     this.employe = employe;
   }
@@ -162,6 +164,8 @@ public class FrmNouvelleCommande extends java.awt.Frame {
   /* Fermeture de la fenêtre */
   private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
     frm = null;
+    frmMere = null;
+    employe = null;
     dispose();
   }//GEN-LAST:event_formWindowClosing
 
@@ -170,12 +174,15 @@ public class FrmNouvelleCommande extends java.awt.Frame {
       int nombre = Integer.parseInt(tfNombre.getText());
       frmMere.addCommande(new Commande(employe, capsule, nombre));
       frm = null;
+      employe = null;
+      frmMere = null;
       dispose();
     }//GEN-LAST:event_enregistrerCommande
 
     private void confirmerValeurSaisie(java.awt.event.TextEvent evt) {//GEN-FIRST:event_confirmerValeurSaisie
       if (outils.Validation.isIntValid(tfNombre.getText())) {
-        lblErreur.setText("");
+        double montant = listeCapsules.getCourant().getPrix()*Integer.parseInt(tfNombre.getText());
+        lblErreur.setText(MSG_MONTANT + montant);
         btnEnregistrer.setEnabled(true);
       } else {
         lblErreur.setText(MSG_ERREUR);

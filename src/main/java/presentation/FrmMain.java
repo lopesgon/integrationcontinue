@@ -3,13 +3,11 @@ package presentation;
 import base.ConnexionBase;
 import domaine.Commande;
 import domaine.Employe;
-import metier.ListeCommandes;
+import java.util.ArrayList;
 import metier.ListeEmployes;
 
 /**
  * Application de gestion des commandes de capsules de café.
- *
- * Écran principal
  *
  * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
  * 
@@ -20,7 +18,6 @@ public class FrmMain extends java.awt.Frame {
   private final String LIBELLECOMMANDE = "Commande de ",
           LIBELLECOMMANDENULLE = "<Aucune>";
   private ListeEmployes listeEmployes;
-  private ListeCommandes listeCommandes;
 
   public FrmMain() {
     initComponents();
@@ -166,33 +163,27 @@ public class FrmMain extends java.awt.Frame {
     lblCommandes.setText(LIBELLECOMMANDE + employe.toString());
   }
 
-  private void fillListCommandes() {
-    for (int i = 0, n = listeCommandes.size(); i < n; i++) {
-      lstCommandes.add(listeCommandes.get(i).toString());
+  private void fillListCommandes(ArrayList<Commande> commandes) {
+    for(Commande commande : commandes) {
+      lstCommandes.add(commande.toString());
     }
   }
 
   private void updateComposantsCommande() {
-    listeCommandes = new ListeCommandes(listeEmployes.getCourant());
-    int n = listeCommandes.size();
+    Employe employe = listeEmployes.getCourant();
+    ArrayList<Commande> commandes = employe.getCommandes();
     lstCommandes.removeAll();
-    if (n != 0) {
-      fillListCommandes();
+    if (!commandes.isEmpty()) {
+      fillListCommandes(commandes);
     } else {
       lstCommandes.add(LIBELLECOMMANDENULLE);
     }
-    double total = listeCommandes.getTotal();
+    double total = employe.getTotalCommandes();
     tfTotal.setText("" + total);
   }
 
   public void addCommande(Commande commande) {
-    int size = listeCommandes.size();
-    int pos = listeCommandes.addCommande(commande);
-    if (size == 0 || size==pos) {
-      lstCommandes.add(listeCommandes.getCourant().toString());
-    } else {
-      lstCommandes.replaceItem(listeCommandes.getCourant().toString(), pos);
-    }
+    listeEmployes.addCommande(commande);
     updateComposantsCommande();
   }
 

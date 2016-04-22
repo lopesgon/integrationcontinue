@@ -1,6 +1,8 @@
 package metier;
 
+import base.CommandeDao;
 import base.EmployeDao;
+import domaine.Commande;
 import domaine.Employe;
 
 /**
@@ -20,6 +22,12 @@ public class ListeEmployes extends ListeObjects {
 
     public Employe get(int k) {
         return (Employe) super.get(k);
+    }
+    
+    public void addCommande(Commande commande){
+      int ind = this.getCourant().addCommande(commande);
+      CommandeDao.insertCommande(commande);
+      System.out.println("Valeur de l'indice reçu en insertion de commande : " + ind);
     }
 
 }

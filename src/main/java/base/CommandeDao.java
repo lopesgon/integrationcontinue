@@ -29,7 +29,7 @@ public class CommandeDao {
   }
 
   public static ArrayList<Commande> getListeCommandes(Employe employe) {
-    lstCommandes = new ArrayList<>();
+    lstCommandes = new ArrayList<Commande>();
     try {
       Connection con = ConnexionBase.get();
       PreparedStatement stmt = con.prepareStatement(QUERY_GET);
@@ -61,9 +61,9 @@ public class CommandeDao {
       stmt.setInt(1, commande.getEmploye().getId());
       stmt.setInt(2, commande.getCapsule().getId());
       stmt.setInt(3, commande.getNombre());
-      java.sql.Date today = new java.sql.Date(new java.util.Date().getTime()); // CORRIGE
+      java.sql.Date today = new java.sql.Date(new java.util.Date().getTime());
       stmt.setDate(4, today);
-      stmt.executeUpdate(); // CORRIGE
+      stmt.executeUpdate();
       stmt.close();
       return true;
     } catch (SQLException e) {
