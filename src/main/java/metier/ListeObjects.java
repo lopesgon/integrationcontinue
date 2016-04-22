@@ -1,6 +1,3 @@
-/*****************************************************/
-/* VOUS N'AVEZ PAS LE DROIT DE MODIFIER CETTE CLASSE */
-/*****************************************************/
 package metier;
 
 import java.util.ArrayList;
@@ -10,8 +7,8 @@ import java.util.ArrayList;
  * - abstract: aucune instance de ce composant ne doit être créée
  * - visibilité package: outil de base pour créer des listes spécialisées dans le package.
  *
- * @author Peter DAEHNE - HEG Genève
- * @version 1.2
+ * @author lopesmagalhaesfrederic
+ * 
  */
 abstract class ListeObjects {
 
@@ -49,7 +46,7 @@ abstract class ListeObjects {
     } else if (pos > k) {
       pos--;
     }
-  } // delCourant
+  }
   
   /** Ajoute l'Objet obj en position k. Sans effet si k n'est pas correctement défini. */
   public final void add (Object obj, int k) {
@@ -62,12 +59,12 @@ abstract class ListeObjects {
   protected Object getCourant () {
     if (pos < 0 || pos >= liste.size()) {return null;}
     return liste.get(pos);
-  } // getCourant
+  }
 
   /** Retourne l'Object d'indice k, null si k n'est pas correctement défini. */
   protected Object get (int k) {
     if (k < 0 || k >= liste.size()) {return null;}
     return liste.get(k);
-  } // get
+  }
   
-} // ListeObjects
+}

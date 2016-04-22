@@ -5,8 +5,8 @@ import domaine.Capsule;
 
 /**
  *
- * @author fredericlopesmagalhaes     Numéro du poste: HEG-WS-8468
- * @version 1.0
+ * @author fredericlopesmagalhaes
+ * 
  */
 public class ListeCapsules extends ListeObjects {
     

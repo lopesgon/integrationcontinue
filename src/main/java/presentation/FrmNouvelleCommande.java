@@ -4,15 +4,12 @@ import domaine.*;
 import metier.ListeCapsules;
 
 /**
- * Module 634.1-Programmation - Contrôle continu du 13.04.2016
- *
+ * 
  * Enregistrement d'une nouvelle commande pour un employé: Singleton
- *
  * Écran principal
  *
  * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
- * @version 1.0 CORRECTIONS : - L'ancien code est en commentaire - Le nouveau
- * code se trouve à la suite de l'ancien mis en commentaire
+ * 
  */
 public class FrmNouvelleCommande extends java.awt.Frame {
 
@@ -25,20 +22,17 @@ public class FrmNouvelleCommande extends java.awt.Frame {
   private static Employe employe;
   private ListeCapsules listeCapsules;
 
-  /* Constructeur */
   private FrmNouvelleCommande(FrmMain frmMere, Employe employe) {
     initComponents();
     setDonnees(frmMere, employe);
     initMetier();
     initFrame();
-  } // Constructeur
+  }
 
-  // NOUVEAU - AJOUT DE CETTE METHODE POUR REUTILISER DANS L'ALTERNATIVE getInstance(...)
   private void setDonnees(FrmMain frmMere, Employe employe) {
     this.frmMere = frmMere;
     this.employe = employe;
   }
-  // FIN NOUVEAU CODE //
 
   private void initMetier() {
     listeCapsules = new ListeCapsules();
@@ -52,11 +46,9 @@ public class FrmNouvelleCommande extends java.awt.Frame {
 
   private void initFrame() {
     fillListCapsules();
-    // NOUVEAU - INVERSER ETAPES ET CREATION D'UNE METHODE DE MAJ COMPOSANTS
     updateComposants();
   }
 
-  // NOUVEAU - METHODE DE MAJ DES COMPOSANTS AVEC LES NOUVELLES DONNEES
   private void updateComposants() {
     lstCapsules.select(DEFAULT_INDEX);
     listeCapsules.setPos(DEFAULT_INDEX);
@@ -66,12 +58,11 @@ public class FrmNouvelleCommande extends java.awt.Frame {
   public static FrmNouvelleCommande getInstance(FrmMain frmMere, Employe employe) {
     if (frm == null) {
       frm = new FrmNouvelleCommande(frmMere, employe);
-    } // NOUVEAU - AJOUT DE L'ALTERNATIVE POUR METTRE A JOUR 
+    }
     else {
       frm.setDonnees(frmMere, employe);
       frm.updateComposants();
     }
-    // FIN NOUVEAU CODE //
     return frm;
   }
 
@@ -178,9 +169,7 @@ public class FrmNouvelleCommande extends java.awt.Frame {
       Capsule capsule = listeCapsules.getCourant();
       int nombre = Integer.parseInt(tfNombre.getText());
       frmMere.addCommande(new Commande(employe, capsule, nombre));
-      // NOUVEAU CODE :
       frm = null;
-      // FIN NOUVEAU CODE //
       dispose();
     }//GEN-LAST:event_enregistrerCommande
 
@@ -195,11 +184,9 @@ public class FrmNouvelleCommande extends java.awt.Frame {
       validate();
     }//GEN-LAST:event_confirmerValeurSaisie
 
-  // NOUVEAU - AJOUT DE LE L'EVENT LISTENER DU CHANGEMENT D'ITEM
   private void changedSelectedCapsule(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_changedSelectedCapsule
     listeCapsules.setPos(lstCapsules.getSelectedIndex());
   }//GEN-LAST:event_changedSelectedCapsule
-  // FIN NOUVELLE METHODE 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.awt.Button btnEnregistrer;
@@ -210,4 +197,4 @@ public class FrmNouvelleCommande extends java.awt.Frame {
   private java.awt.TextField tfNombre;
   // End of variables declaration//GEN-END:variables
 
-} // FrmNouvelleCommande
+}

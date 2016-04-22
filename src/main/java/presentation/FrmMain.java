@@ -7,34 +7,26 @@ import metier.ListeCommandes;
 import metier.ListeEmployes;
 
 /**
- * Module 634.1-Programmation - Contrôle continu du 13.04.2016
- *
  * Application de gestion des commandes de capsules de café.
  *
  * Écran principal
  *
  * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
- * @version 1.0 CORRECTIONS : - L'ancien code est en commentaire - Le nouveau
- * code se trouve à la suite de l'ancien mis en commentaire
+ * 
  */
 public class FrmMain extends java.awt.Frame {
 
   private final int DEFAULT_INDEX = 0;
   private final String LIBELLECOMMANDE = "Commande de ",
-          LIBELLECOMMANDENULLE = "<Aucune>",
-          // AJOUT D'UN PATTERN POUR DECIMAL FORMAT
-          PATTERN_DECIMAL = "#'###'##0.00";
+          LIBELLECOMMANDENULLE = "<Aucune>";
   private ListeEmployes listeEmployes;
   private ListeCommandes listeCommandes;
 
-  /**
-   * Constructeur
-   */
   public FrmMain() {
     initComponents();
     initMetier();
     initFrame();
-  } // Constructeur
+  }
 
   private void initMetier() {
     listeEmployes = new ListeEmployes();
@@ -149,7 +141,6 @@ public class FrmMain extends java.awt.Frame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  /* Fermeture de la fenêtre */
   private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     ConnexionBase.close();
     System.exit(0);
@@ -190,7 +181,6 @@ public class FrmMain extends java.awt.Frame {
     } else {
       lstCommandes.add(LIBELLECOMMANDENULLE);
     }
-    //tfTotal.setText("" + listeCommandes.getTotal());
     double total = listeCommandes.getTotal();
     tfTotal.setText("" + total);
   }

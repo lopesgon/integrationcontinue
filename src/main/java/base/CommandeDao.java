@@ -9,17 +9,15 @@ import java.sql.SQLException;
 
 /**
  *
- * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
- * @version 1.0 CORRECTIONS : - L'ancien code est en commentaire - Le nouveau
- * code se trouve à la suite de l'ancien mis en commentaire
+ * @author fredericlopesmagalhaes
+ * 
  */
 public class CommandeDao {
 
   private static final String QUERY_GET
           = "SELECT IdEmploye, IdCapsule, SUM(Nombre) 'Nombre' FROM Commande WHERE IdEmploye = ? GROUP BY IdCapsule",
           QUERY_INSERT
-          = //"INSERT INTO Commande VALUES(?,?,?,?)";
-          "INSERT INTO Commande VALUES(null,?,?,?,?)";
+          = "INSERT INTO Commande VALUES(null,?,?,?,?)";
 
   private static ArrayList<Capsule> lstCapsules;
   private static ArrayList<Commande> lstCommandes;
@@ -37,7 +35,6 @@ public class CommandeDao {
       PreparedStatement stmt = con.prepareStatement(QUERY_GET);
       stmt.setInt(1, employe.getId());
       ResultSet rs = stmt.executeQuery();
-      //lstCommandes = new ArrayList<>(); // DEPLACE AVANT TRY{ .. }
       lstCapsules = CapsuleDao.getListeCapsules();
       while (rs.next()) {
         Capsule capsule = getCapsule(rs.getInt("IdCapsule"));
@@ -54,7 +51,6 @@ public class CommandeDao {
       System.out.println("ERREUR NON SQL");
       e.printStackTrace();
     }
-    //return null;
     return lstCommandes;
   }
 
@@ -65,9 +61,6 @@ public class CommandeDao {
       stmt.setInt(1, commande.getEmploye().getId());
       stmt.setInt(2, commande.getCapsule().getId());
       stmt.setInt(3, commande.getNombre());
-      // Date today = Calendar.getInstance().getTime();
-      //stmt.setDate(4, null);
-      // ResultSet rs = stmt.executeQuery();
       java.sql.Date today = new java.sql.Date(new java.util.Date().getTime()); // CORRIGE
       stmt.setDate(4, today);
       stmt.executeUpdate(); // CORRIGE

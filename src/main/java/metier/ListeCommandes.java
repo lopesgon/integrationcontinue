@@ -6,8 +6,8 @@ import domaine.Employe;
 
 /**
  *
- * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
- * @version 1.0
+ * @author fredericlopesmagalhaes
+ * 
  */
 public class ListeCommandes extends ListeObjects {
 
@@ -33,29 +33,17 @@ public class ListeCommandes extends ListeObjects {
       commandeExist.addNombre(commande.getNombre());
       setPos(ind);
     } else {
-      // NOUVEAU - AJOUT DANS LA COMMANDE INEXISTANTE
       liste.add(commande);
-      // FIN NOUVEAU
       setPos(super.size() - 1);
     }
     CommandeDao.insertCommande(commande);
     return getPos();
   }
-
-  /*
-    public int getTotal(){
-        int total = 0;
-        for(int i=0, n=size(); i<n; i++){
-            total += get(i).getNombre();
-        }
-        return total;
-    }*/
   
   public double getTotal() {
     double total = 0;
     for (int i = 0, n = size(); i < n; i++) {
-      Commande commande = get(i);
-      total += commande.getNombre() * commande.getCapsule().getPrix();
+      total += get(i).getPrix();
     }
     return total;
   }

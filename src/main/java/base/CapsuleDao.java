@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author fredericlopesmagalhaes     Numéro du poste: HEG-WS-8468
- * @version 1.0
+ * @author fredericlopesmagalhaes
+ * 
  */
 public class CapsuleDao {
 
