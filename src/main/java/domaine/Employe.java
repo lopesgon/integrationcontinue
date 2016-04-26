@@ -30,6 +30,7 @@ public class Employe {
   public int getId () {return id;}
   public String getNom () {return nom;}
   public String getPrenom () {return prenom;}
+  public int getNbCommandes(){return commandes.size();}
   public ArrayList<Commande> getCommandes(){return commandes;}
   public Commande getCommande(int ind){return commandes.get(ind);}
   

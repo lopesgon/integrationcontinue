@@ -21,9 +21,9 @@ public class Commande {
     this.employe = employe; this.capsule = capsule; this.nombre = nombre;
   }
 
-  public Capsule getCapsule () {return capsule;}
+  public Capsule getCapsule() {return capsule;}
   public Employe getEmploye(){return employe;}
-  public int getNombre () {return nombre;}
+  public int getNombre() {return nombre;}
   public void addNombre(int nombre){this.nombre += nombre;}
 
   public double getPrix () {return nombre * capsule.getPrix();}

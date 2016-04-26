@@ -31,10 +31,25 @@ public class EmployeTest {
   // @AfterMethod
   
   @Test
-  public void testAddCommandes(){
+  public void testGetTotalCommandes(){
     double initTotal = employe.getTotalCommandes();
     employe.addCommande(new Commande(employe, new Capsule(3, "caps3", 0.3), 10));
     assertTrue(initTotal + 3 == employe.getTotalCommandes());
+  }
+  
+  @Test
+  public void testAddCommande(){
+    int nbCommandes = employe.getNbCommandes();
+    employe.addCommande(new Commande(employe, new Capsule(3, "caps3", 0.3), 10));
+    assertTrue(employe.getNbCommandes() == 3);
+  }
+  
+  @Test
+  public void testAddNombre(){
+    Commande commande = employe.getCommande(0);
+    int qt = commande.getNombre();
+    commande.addNombre(qt);
+    assertTrue(commande.getNombre() == qt*2);
   }
   
 }
