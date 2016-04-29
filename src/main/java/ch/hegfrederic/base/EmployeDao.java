@@ -1,8 +1,8 @@
-package base;
+package ch.hegfrederic.base;
 
 import java.util.ArrayList;
-import domaine.Employe;
-import domaine.Commande;
+import ch.hegfrederic.domaine.Employe;
+import ch.hegfrederic.domaine.Commande;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

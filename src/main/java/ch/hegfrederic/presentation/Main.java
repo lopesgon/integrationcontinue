@@ -1,4 +1,4 @@
-package presentation;
+package ch.hegfrederic.presentation;
 
 /**
  * Classe principale de l'application

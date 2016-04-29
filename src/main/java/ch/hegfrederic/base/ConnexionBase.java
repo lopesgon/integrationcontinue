@@ -1,6 +1,6 @@
-package base;
+package ch.hegfrederic.base;
 
-import base.mysql.Outils;
+import ch.hegfrederic.base.mysql.Outils;
 import java.sql.Connection;
 import java.sql.SQLException;
 

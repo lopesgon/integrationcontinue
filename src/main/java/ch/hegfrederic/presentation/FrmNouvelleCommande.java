@@ -1,7 +1,9 @@
-package presentation;
+package ch.hegfrederic.presentation;
 
-import domaine.*;
-import metier.ListeCapsules;
+import ch.hegfrederic.domaine.Commande;
+import ch.hegfrederic.domaine.Capsule;
+import ch.hegfrederic.domaine.Employe;
+import ch.hegfrederic.metier.ListeCapsules;
 
 /**
  * 
@@ -106,8 +108,8 @@ public class FrmNouvelleCommande extends java.awt.Frame {
       }
     });
 
-    btnEnregistrer.setLabel("Enregistrer la commande");
     btnEnregistrer.setEnabled(false);
+    btnEnregistrer.setLabel("Enregistrer la commande");
     btnEnregistrer.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         enregistrerCommande(evt);
@@ -180,7 +182,7 @@ public class FrmNouvelleCommande extends java.awt.Frame {
     }//GEN-LAST:event_enregistrerCommande
 
     private void confirmerValeurSaisie(java.awt.event.TextEvent evt) {//GEN-FIRST:event_confirmerValeurSaisie
-      if (outils.Validation.isIntValid(tfNombre.getText())) {
+      if (ch.hegfrederic.outils.Validation.isIntValid(tfNombre.getText())) {
         double montant = listeCapsules.getCourant().getPrix()*Integer.parseInt(tfNombre.getText());
         lblErreur.setText(MSG_MONTANT + montant);
         btnEnregistrer.setEnabled(true);

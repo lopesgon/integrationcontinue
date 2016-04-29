@@ -1,4 +1,4 @@
-package base.mysql;
+package ch.hegfrederic.base.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

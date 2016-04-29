@@ -1,8 +1,8 @@
-package metier;
+package ch.hegfrederic.metier;
 
-import base.CapsuleDao;
-import base.EmployeDao;
-import domaine.Capsule;
+import ch.hegfrederic.base.CapsuleDao;
+import ch.hegfrederic.base.EmployeDao;
+import ch.hegfrederic.domaine.Capsule;
 
 /**
  *

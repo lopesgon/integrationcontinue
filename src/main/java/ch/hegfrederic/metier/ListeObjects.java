@@ -1,4 +1,4 @@
-package metier;
+package ch.hegfrederic.metier;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package domaine;
+package ch.hegfrederic.domaine;
 
 import java.text.DecimalFormat;
 

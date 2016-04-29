@@ -1,4 +1,4 @@
-package outils;
+package ch.hegfrederic.outils;
 
 /**
  * Outils de validation de nombres

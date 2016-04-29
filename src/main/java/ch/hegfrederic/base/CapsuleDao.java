@@ -1,6 +1,6 @@
-package base;
+package ch.hegfrederic.base;
 
-import domaine.Capsule;
+import ch.hegfrederic.domaine.Capsule;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

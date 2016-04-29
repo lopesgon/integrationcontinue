@@ -1,6 +1,6 @@
-import domaine.Capsule;
-import domaine.Commande;
-import domaine.Employe;
+import ch.hegfrederic.domaine.Capsule;
+import ch.hegfrederic.domaine.Commande;
+import ch.hegfrederic.domaine.Employe;
 import java.util.ArrayList;
 import java.util.List;
 import static org.testng.Assert.*;
@@ -14,9 +14,9 @@ import org.testng.annotations.Test;
  */
 public class EmployeTest {
 
-  private domaine.Employe employe;
+  private ch.hegfrederic.domaine.Employe employe;
 
-  private List<domaine.Commande> setUpCommande(){
+  private List<ch.hegfrederic.domaine.Commande> setUpCommande(){
     List<Commande> commandes = new ArrayList<>();
     commandes.add(new Commande(employe, new Capsule(0, "caps1", 0.5), 10));
     commandes.add(new Commande(employe, new Capsule(1, "caps2", 0.75), 10));

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import metier.ListeObjects;
+import ch.hegfrederic.metier.ListeObjects;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,7 +23,7 @@ public class ListeObjectsTest {
     }
   }
   
-  private metier.ListeObjects<Toto> listTotos;
+  private ch.hegfrederic.metier.ListeObjects<Toto> listTotos;
   
   @BeforeMethod
   public void init(){

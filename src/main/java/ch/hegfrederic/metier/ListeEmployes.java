@@ -1,8 +1,8 @@
-package metier;
+package ch.hegfrederic.metier;
 
-import base.CommandeDao;
-import domaine.Commande;
-import domaine.Employe;
+import ch.hegfrederic.base.CommandeDao;
+import ch.hegfrederic.domaine.Commande;
+import ch.hegfrederic.domaine.Employe;
 
 /**
  *
