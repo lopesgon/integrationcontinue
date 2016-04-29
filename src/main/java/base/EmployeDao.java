@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -18,7 +19,7 @@ public class EmployeDao {
     private static final String QUERY_GETALL =
             "SELECT*FROM Employe ORDER BY Nom, Prenom";
     
-    public static ArrayList<Employe> getListeEmployes(){
+    public static List<Employe> getListeEmployes() {
         try {
             Connection con = ConnexionBase.get();
             PreparedStatement stmt = con.prepareStatement(QUERY_GETALL);
@@ -29,15 +30,13 @@ public class EmployeDao {
                 String nom = rs.getString("Nom");
                 String prenom = rs.getString("Prenom");
                 Employe employe = new Employe(id, nom, prenom);
-                ArrayList<Commande> commandes = CommandeDao.getListeCommandes(employe);
+                List<Commande> commandes = CommandeDao.getListeCommandes(employe);
                 employe.setCommandes(commandes);
                 liste.add(employe);
             }
             return liste;
         } catch (SQLException e) {
-            System.out.println("base.EmployeDao.getListeEmployes()" + e.getMessage());
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
     

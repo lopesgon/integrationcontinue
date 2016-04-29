@@ -1,6 +1,9 @@
 package metier;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Liste d'Objects avec une position courante
@@ -10,11 +13,11 @@ import java.util.ArrayList;
  * @author lopesmagalhaesfrederic
  * 
  */
-abstract class ListeObjects {
+public class ListeObjects<T> {
 
   public static final int NO_POS = -1; /* Valeur de la position courante non définie */
 
-  protected ArrayList liste;   /* Liste des Objects */
+  private List<T> liste = new ArrayList<>();   /* Liste des Objects */
   private int pos = NO_POS;    /* La position courante: initialement, pas de position courante */
 
   /** Retourne la position courante. NO_POS s'il n'y en a pas. */
@@ -27,7 +30,7 @@ abstract class ListeObjects {
   public final int size () {return liste.size();}
 
   /** Retourne true ssi la liste contient l'Object o. */
-  public final boolean contains (Object o) {return liste.contains(o);}
+  public final boolean contains (T o) {return liste.contains(o);}
 
   /** Supprime l'Objet courant. Sans effet si la position courante n'est par correctement définie.
       Postcondition: la liste n'a plus de position courante. */
@@ -49,22 +52,26 @@ abstract class ListeObjects {
   }
   
   /** Ajoute l'Objet obj en position k. Sans effet si k n'est pas correctement défini. */
-  public final void add (Object obj, int k) {
+  public final void add (T obj, int k) {
     if (k < 0 || k > liste.size()) {return;}
     liste.add(k, obj);
     if (pos >= k) {pos++;}
-  } // add
+  }
 
   /** Retourne l'Object courant, null si la position courante n'est pas correctement définie. */
-  protected Object getCourant () {
+  public T getCourant () {
     if (pos < 0 || pos >= liste.size()) {return null;}
     return liste.get(pos);
   }
 
   /** Retourne l'Object d'indice k, null si k n'est pas correctement défini. */
-  protected Object get (int k) {
+  public T get (int k) {
     if (k < 0 || k >= liste.size()) {return null;}
     return liste.get(k);
   }
-  
+ 
+    protected void setObjects(Collection<T> objects) {
+      liste.retainAll(Collections.EMPTY_LIST);
+      liste.addAll(objects);
+    }
 }

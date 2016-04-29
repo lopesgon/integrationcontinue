@@ -4,6 +4,7 @@ import base.ConnexionBase;
 import domaine.Commande;
 import domaine.Employe;
 import java.util.ArrayList;
+import java.util.List;
 import metier.ListeEmployes;
 
 /**
@@ -163,7 +164,7 @@ public class FrmMain extends java.awt.Frame {
     lblCommandes.setText(LIBELLECOMMANDE + employe.toString());
   }
 
-  private void fillListCommandes(ArrayList<Commande> commandes) {
+  private void fillListCommandes(List<Commande> commandes) {
     for(Commande commande : commandes) {
       lstCommandes.add(commande.toString());
     }
@@ -171,7 +172,7 @@ public class FrmMain extends java.awt.Frame {
 
   private void updateComposantsCommande() {
     Employe employe = listeEmployes.getCourant();
-    ArrayList<Commande> commandes = employe.getCommandes();
+    List<Commande> commandes = employe.getCommandes();
     lstCommandes.removeAll();
     if (!commandes.isEmpty()) {
       fillListCommandes(commandes);

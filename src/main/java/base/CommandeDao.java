@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -19,8 +20,8 @@ public class CommandeDao {
           QUERY_INSERT
           = "INSERT INTO Commande VALUES(null,?,?,?,?)";
 
-  private static ArrayList<Capsule> lstCapsules;
-  private static ArrayList<Commande> lstCommandes;
+  private static List<Capsule> lstCapsules;
+  private static List<Commande> lstCommandes;
 
   private static Capsule getCapsule(int idCapsule) {
     Capsule capsule = new Capsule(idCapsule, "-1", -1);
@@ -28,7 +29,7 @@ public class CommandeDao {
     return lstCapsules.get(indCapsule);
   }
 
-  public static ArrayList<Commande> getListeCommandes(Employe employe) {
+  public static List<Commande> getListeCommandes(Employe employe) {
     lstCommandes = new ArrayList<Commande>();
     try {
       Connection con = ConnexionBase.get();

@@ -1,6 +1,7 @@
 package domaine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Représentation d'un employé
@@ -14,7 +15,7 @@ public class Employe {
   private int id;
   private String nom;
   private String prenom;
-  private ArrayList<Commande> commandes;
+  private List<Commande> commandes;
 
   // TEMPORAIREMENT JUSQU'A FIN DES MODIFICATIONS
   public Employe (int id, String nom, String prenom) {
@@ -31,10 +32,10 @@ public class Employe {
   public String getNom () {return nom;}
   public String getPrenom () {return prenom;}
   public int getNbCommandes(){return commandes.size();}
-  public ArrayList<Commande> getCommandes(){return commandes;}
+  public List<Commande> getCommandes(){return commandes;}
   public Commande getCommande(int ind){return commandes.get(ind);}
   
-  public void setCommandes(ArrayList<Commande> commandes){this.commandes = commandes;}
+  public void setCommandes(List<Commande> commandes){this.commandes = commandes;}
 
   public double getTotalCommandes(){
     double total = 0;
