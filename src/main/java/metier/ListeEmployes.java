@@ -13,7 +13,11 @@ import domaine.Employe;
 public class ListeEmployes extends ListeObjects<Employe> {
 
   public ListeEmployes() {    
-    setObjects(EmployeDao.getListeEmployes());
+    this(EmployeDao.getListeEmployes());
+  }
+  
+  public ListeEmployes(java.util.List<Employe> liste){
+    setObjects(liste);
   }
 
   public void addCommande(Commande commande) {
