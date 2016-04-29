@@ -27,16 +27,14 @@ public class ListeEmployesTest {
     listeEmployes = new metier.ListeEmployes(liste);
   }
 
-/*  
+  
   @Test
   public void testAddCommande(){
     listeEmployes.setPos(0);
+    int nbCommandes = listeEmployes.getCourant().getNbCommandes();
     domaine.Commande commande = new Commande(listeEmployes.getCourant(), new domaine.Capsule(0, "CapsuleTest", 0.5), 10);
     listeEmployes.addCommande(commande);
-    commande = new Commande(listeEmployes.getCourant(), new domaine.Capsule(1, "CapsuleTest1", 0.75), 15);
-    listeEmployes.addCommande(commande);
-    assertEquals(listeEmployes.getCourant().getNbCommandes(), 2);
-  } 
-*/
+    assertNotSame(listeEmployes.getCourant().getNbCommandes(), nbCommandes);
+  }
   
 }

@@ -27,7 +27,7 @@ public class FrmMain extends java.awt.Frame {
   }
 
   private void initMetier() {
-    listeEmployes = new ListeEmployes();
+    listeEmployes = new ListeEmployes(base.EmployeDao.getListeEmployes());
   }
 
   private void fillListEmployes() {
@@ -185,6 +185,7 @@ public class FrmMain extends java.awt.Frame {
 
   public void addCommande(Commande commande) {
     listeEmployes.addCommande(commande);
+    base.CommandeDao.insertCommande(commande);
     updateComposantsCommande();
   }
 

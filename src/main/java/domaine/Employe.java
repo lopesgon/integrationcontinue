@@ -17,9 +17,8 @@ public class Employe {
   private String prenom;
   private List<Commande> commandes;
 
-  // TEMPORAIREMENT JUSQU'A FIN DES MODIFICATIONS
   public Employe (int id, String nom, String prenom) {
-    this(id,nom,prenom,null);
+    this(id,nom,prenom,new ArrayList<>());
   }
   
   public Employe(int id, String nom, String prenom, ArrayList<Commande> commandes){
