@@ -36,15 +36,18 @@ public class EmployeTest {
   public void testGetTotalCommandes(){
     double initTotal = employe.getTotalCommandes();
     employe.addCommande(new Commande(employe, new Capsule(3, "caps3", 0.3), 10));
-    // assertTrue(initTotal + 3 == employe.getTotalCommandes());
     assertEquals(initTotal+3,employe.getTotalCommandes());
   }
   
   @Test
   public void testAddCommande(){
     int nbCommandes = employe.getNbCommandes();
-    employe.addCommande(new Commande(employe, new Capsule(3, "caps3", 0.3), 10));
+    Commande commande = new Commande(employe, new Capsule(3, "caps3", 0.3), 10);
+    int ind = employe.addCommande(commande);
     assertEquals(employe.getNbCommandes(), 3);
+    assertEquals(ind, -1);
+    ind = employe.addCommande(new Commande(employe, new Capsule(3, "caps3", 0.3), 25));
+    assertEquals(commande.getNombre(), 35);
   }
   
   @Test
@@ -53,6 +56,15 @@ public class EmployeTest {
     int qt = commande.getNombre();
     commande.addNombre(qt);
     assertEquals(commande.getNombre(),qt*2);
+  }
+  
+  @Test
+  public void testGetters(){
+    assertEquals(employe.getId(), 0);
+    assertEquals(employe.getNbCommandes(), 2);
+    assertEquals(employe.getNom(), "UserTest");
+    assertEquals(employe.getPrenom(), "Test");
+    assertEquals(employe.getCommandes(), setUpCommande());
   }
   
 }
