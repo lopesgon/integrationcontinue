@@ -20,7 +20,7 @@ public class CapsuleDao {
   private static final String QUERY_GETALL
           = "SELECT*FROM Capsule ORDER BY Nom";
 
-  public static List<Capsule> getListeCapsules() {
+  public List<Capsule> getListeCapsules() {
     if (liste != null && liste.size() > 0) {
       return liste;
     } else {

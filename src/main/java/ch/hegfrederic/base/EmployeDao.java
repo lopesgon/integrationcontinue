@@ -30,7 +30,7 @@ public class EmployeDao {
         String nom = rs.getString("Nom");
         String prenom = rs.getString("Prenom");
         Employe employe = new Employe(id, nom, prenom);
-        List<Commande> commandes = CommandeDao.getListeCommandes(employe);
+        List<Commande> commandes = new CommandeDao().getListeCommandes(employe);
         employe.setCommandes(commandes);
         liste.add(employe);
       }

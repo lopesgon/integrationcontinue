@@ -10,7 +10,17 @@ import ch.hegfrederic.domaine.Capsule;
  */
 public class ListeCapsules extends ListeObjects<Capsule> {
   
+  private CapsuleDao dao;
+  
+  ListeCapsules(CapsuleDao dao){
+    this.dao = dao;
+  }
+  
   public ListeCapsules() {    
-    setObjects(CapsuleDao.getListeCapsules());
+    this.dao = new CapsuleDao();
+  }
+  
+  public void init(){
+    setObjects(dao.getListeCapsules());
   }
 }

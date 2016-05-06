@@ -14,8 +14,8 @@ public class ListeEmployes extends ListeObjects<Employe> {
   private final EmployeDao dao;
 
   // Vue Package
-  ListeEmployes(EmployeDao employeDao) {
-    this.dao = employeDao;
+  ListeEmployes(EmployeDao dao) {
+    this.dao = dao;
   }
 
   public ListeEmployes() {

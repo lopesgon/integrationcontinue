@@ -31,14 +31,14 @@ public class CommandeDao {
     return lstCapsules.get(indCapsule);
   }
 
-  public static List<Commande> getListeCommandes(Employe employe) {
+  public List<Commande> getListeCommandes(Employe employe) {
     lstCommandes = new ArrayList<Commande>();
     try {
       Connection con = ConnexionBase.get();
       PreparedStatement stmt = con.prepareStatement(QUERY_GET);
       stmt.setInt(1, employe.getId());
       ResultSet rs = stmt.executeQuery();
-      lstCapsules = CapsuleDao.getListeCapsules();
+      lstCapsules = new CapsuleDao().getListeCapsules();
       while (rs.next()) {
         Capsule capsule = getCapsule(rs.getInt("IdCapsule"));
         int nombre = rs.getInt("Nombre");
@@ -55,7 +55,7 @@ public class CommandeDao {
     return lstCommandes;
   }
 
-  public static boolean insertCommande(Commande commande) {
+  public boolean insertCommande(Commande commande) {
     try {
       Connection con = ConnexionBase.get();
       PreparedStatement stmt = con.prepareStatement(QUERY_INSERT);

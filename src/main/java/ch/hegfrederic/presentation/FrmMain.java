@@ -1,5 +1,6 @@
 package ch.hegfrederic.presentation;
 
+import ch.hegfrederic.base.CommandeDao;
 import ch.hegfrederic.base.ConnexionBase;
 import ch.hegfrederic.domaine.Commande;
 import ch.hegfrederic.domaine.Employe;
@@ -185,7 +186,7 @@ public class FrmMain extends java.awt.Frame {
 
   public void addCommande(Commande commande) {
     listeEmployes.addCommande(commande);
-    ch.hegfrederic.base.CommandeDao.insertCommande(commande);
+    new CommandeDao().insertCommande(commande);
     updateComposantsCommande();
   }
 
