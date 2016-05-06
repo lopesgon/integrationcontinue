@@ -29,9 +29,7 @@ public class EmployeTest {
     List<Commande> commandes = setUpCommande();
     employe.setCommandes(commandes);
   }
-  
-  // @AfterMethod
-  
+    
   @Test
   public void testGetTotalCommandes(){
     double initTotal = employe.getTotalCommandes();

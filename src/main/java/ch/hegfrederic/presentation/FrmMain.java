@@ -6,6 +6,7 @@ import ch.hegfrederic.domaine.Employe;
 import java.util.ArrayList;
 import java.util.List;
 import ch.hegfrederic.metier.ListeEmployes;
+import ch.hegfrederic.metier.ListeObjects;
 
 /**
  * Application de gestion des commandes de capsules de café.
@@ -30,16 +31,16 @@ public class FrmMain extends java.awt.Frame {
     listeEmployes = new ListeEmployes(ch.hegfrederic.base.EmployeDao.getListeEmployes());
   }
 
-  private void fillListEmployes() {
-    for (int i = 0, n = listeEmployes.size(); i < n; i++) {
-      lstEmployes.add(listeEmployes.get(i).toString());
+  private void fillListEmployes(ListeObjects liste) {
+    for (int i = 0, n = liste.size(); i < n; i++) {
+      lstEmployes.add(liste.get(i).toString());
     }
   }
 
   private void initFrame() {
     lstEmployes.select(DEFAULT_INDEX);
     listeEmployes.setPos(DEFAULT_INDEX);
-    fillListEmployes();
+    fillListEmployes(listeEmployes);
     updateComposantsEmploye();
     updateComposantsCommande();
   }

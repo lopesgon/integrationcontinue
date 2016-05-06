@@ -19,18 +19,24 @@ public class ConnexionBase {
   private static void connect () {
     try {con = Outils.connect(NOM_BASE);}
     catch (SQLException e) {System.out.println("ConnexionBase: " + e.getMessage()); e.printStackTrace();}
-    catch (ClassNotFoundException e) {System.out.println("ConnexionBase: " + e.getMessage()); e.printStackTrace();}
+    catch (ClassNotFoundException e) {
+      System.out.println("ConnexionBase: " + e.getMessage()); 
+      throw new RuntimeException(e);
+    }
   }
 
   public static Connection get () {
     if (con == null) {connect();}
     return con;
-  } // get
+  }
 
   public static void close () {
     if (con == null) {return;}
     try {con.close(); con = null;}
-    catch (SQLException e) {System.out.println("ConnexionBase: " + e.getMessage()); e.printStackTrace();}
+    catch (SQLException e) {
+      System.out.println("ConnexionBase: " + e.getMessage()); 
+      throw new RuntimeException(e);
+    }
   }
 
 }

@@ -45,14 +45,12 @@ public class CommandeDao {
         lstCommandes.add(new Commande(employe, capsule, nombre));
       }
       stmt.close();
-      return lstCommandes;
     } catch (SQLException e) {
       System.out.println("base.CommandeDao.getListeCommandes()" + e.getMessage());
-      e.printStackTrace();
+      throw new RuntimeException(e);
     } catch (Exception e) {
       System.out.println("base.CommandeDao.getListeCommandes()" + e.getMessage());
-      System.out.println("ERREUR NON SQL");
-      e.printStackTrace();
+      throw new RuntimeException(e);
     }
     return lstCommandes;
   }
@@ -71,8 +69,7 @@ public class CommandeDao {
       return true;
     } catch (SQLException e) {
       System.out.println("base.CommandeDao.getListeCommandes()" + e.getMessage());
-      e.printStackTrace();
-      return false;
+      throw new RuntimeException(e);
     }
   }
 
