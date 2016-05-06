@@ -19,7 +19,7 @@ public class EmployeDao {
   private static final String QUERY_GETALL
           = "SELECT*FROM Employe ORDER BY Nom, Prenom";
 
-  public static List<Employe> getListeEmployes() {
+  public List<Employe> getListeEmployes() {
     ArrayList<Employe> liste = new ArrayList<>();
     try {
       Connection con = ConnexionBase.get();

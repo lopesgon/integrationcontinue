@@ -5,6 +5,7 @@ import java.util.List;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -23,7 +24,8 @@ public class ListeEmployesTest {
     liste.add(new Employe(0, "Nom2", "Prenom2"));
     liste.add(new Employe(0, "Nom3", "Prenom3"));
     liste.add(new Employe(0, "Nom4", "Prenom4"));
-    listeEmployes = new ch.hegfrederic.metier.ListeEmployes(liste);
+    List list = mock(List.class);
+    listeEmployes = new ch.hegfrederic.metier.ListeEmployes(); // liste);
   }
 
   

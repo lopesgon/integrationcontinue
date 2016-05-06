@@ -1,7 +1,6 @@
 package ch.hegfrederic.metier;
 
 import ch.hegfrederic.base.CapsuleDao;
-import ch.hegfrederic.base.EmployeDao;
 import ch.hegfrederic.domaine.Capsule;
 
 /**

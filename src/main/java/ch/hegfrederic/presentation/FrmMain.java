@@ -3,7 +3,6 @@ package ch.hegfrederic.presentation;
 import ch.hegfrederic.base.ConnexionBase;
 import ch.hegfrederic.domaine.Commande;
 import ch.hegfrederic.domaine.Employe;
-import java.util.ArrayList;
 import java.util.List;
 import ch.hegfrederic.metier.ListeEmployes;
 import ch.hegfrederic.metier.ListeObjects;
@@ -28,7 +27,7 @@ public class FrmMain extends java.awt.Frame {
   }
 
   private void initMetier() {
-    listeEmployes = new ListeEmployes(ch.hegfrederic.base.EmployeDao.getListeEmployes());
+    listeEmployes = new ListeEmployes();
   }
 
   private void fillListEmployes(ListeObjects liste) {
