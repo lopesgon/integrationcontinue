@@ -1,3 +1,5 @@
+package ch.hegfrederic.metier;
+
 import java.util.ArrayList;
 import ch.hegfrederic.metier.ListeObjects;
 import static org.testng.Assert.*;

@@ -1,3 +1,5 @@
+package ch.hegfrederic.outils;
+
 import ch.hegfrederic.outils.Validation;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;

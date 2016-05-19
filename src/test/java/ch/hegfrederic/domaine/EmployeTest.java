@@ -1,3 +1,5 @@
+package ch.hegfrederic.domaine;
+
 import ch.hegfrederic.domaine.Capsule;
 import ch.hegfrederic.domaine.Commande;
 import ch.hegfrederic.domaine.Employe;
