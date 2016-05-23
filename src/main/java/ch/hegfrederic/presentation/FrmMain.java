@@ -6,11 +6,10 @@ import ch.hegfrederic.domaine.Commande;
 import ch.hegfrederic.domaine.Employe;
 import java.util.List;
 import ch.hegfrederic.metier.ListeEmployes;
-import ch.hegfrederic.metier.ListeObjects;
 
 /**
  * Application de gestion des commandes de capsules de café.
- *
+ * 
  * @author fredericlopesmagalhaes Numéro du poste: HEG-WS-8468
  * 
  */
@@ -29,18 +28,19 @@ public class FrmMain extends java.awt.Frame {
 
   private void initMetier() {
     listeEmployes = new ListeEmployes();
+    listeEmployes.init();
   }
 
-  private void fillListEmployes(ListeObjects liste) {
+  private void fillListEmployes(ListeEmployes liste) {
     for (int i = 0, n = liste.size(); i < n; i++) {
       lstEmployes.add(liste.get(i).toString());
     }
   }
 
   private void initFrame() {
+    fillListEmployes(listeEmployes);
     lstEmployes.select(DEFAULT_INDEX);
     listeEmployes.setPos(DEFAULT_INDEX);
-    fillListEmployes(listeEmployes);
     updateComposantsEmploye();
     updateComposantsCommande();
   }
@@ -166,7 +166,7 @@ public class FrmMain extends java.awt.Frame {
   }
 
   private void fillListCommandes(List<Commande> commandes) {
-    for(Commande commande : commandes) {
+    for (Commande commande : commandes) {
       lstCommandes.add(commande.toString());
     }
   }
