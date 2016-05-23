@@ -20,15 +20,15 @@ public class FrmMain extends java.awt.Frame {
           LIBELLECOMMANDENULLE = "<Aucune>";
   private ListeEmployes listeEmployes;
 
-  public FrmMain() {
+  public FrmMain(ListeEmployes listeEmployes){
     initComponents();
-    initMetier();
+    this.listeEmployes = listeEmployes;
+    this.listeEmployes.init();
     initFrame();
   }
-
-  private void initMetier() {
-    listeEmployes = new ListeEmployes();
-    listeEmployes.init();
+  
+  FrmMain(){
+    this(new ListeEmployes());
   }
 
   private void fillListEmployes(ListeEmployes liste) {
@@ -160,12 +160,12 @@ public class FrmMain extends java.awt.Frame {
       frm.setVisible(true);
     }//GEN-LAST:event_nouvelleCommande
 
-  private void updateComposantsEmploye() {
+  protected void updateComposantsEmploye() {
     Employe employe = listeEmployes.getCourant();
     lblCommandes.setText(LIBELLECOMMANDE + employe.toString());
   }
 
-  private void fillListCommandes(List<Commande> commandes) {
+  protected void fillListCommandes(List<Commande> commandes) {
     for (Commande commande : commandes) {
       lstCommandes.add(commande.toString());
     }
@@ -192,9 +192,9 @@ public class FrmMain extends java.awt.Frame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.awt.Button btnCompleter;
-  private java.awt.Label label1;
+  protected java.awt.Label label1;
   private java.awt.Label label2;
-  private java.awt.Label lblCommandes;
+  protected java.awt.Label lblCommandes;
   private java.awt.List lstCommandes;
   private java.awt.List lstEmployes;
   private java.awt.TextField tfTotal;

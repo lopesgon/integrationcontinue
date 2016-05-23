@@ -81,6 +81,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Employ&#xe9;s"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+      </AuxValues>
     </Component>
     <Component class="java.awt.List" name="lstEmployes">
       <Events>
@@ -91,6 +94,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Commandes de ..."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+      </AuxValues>
     </Component>
     <Component class="java.awt.List" name="lstCommandes">
       <Properties>
